@@ -1,0 +1,524 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Öğretmenler Gününüz Kutlu Olsun</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    background: #f8f5ef;
+    color: #302b2a;
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+}
+
+:root {
+    --wine: #421d2b;
+    --wine2: #632d40;
+    --gold: #bd9a68;
+    --cream: #f8f5ef;
+}
+
+/* AÇILIŞ */
+
+.hero {
+    min-height: 100vh;
+    background:
+        radial-gradient(ellipse at 50% 45%, #713c4d 0%, #421d2b 45%, #28141e 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    padding: 30px;
+    overflow: hidden;
+}
+
+.frame {
+    position: absolute;
+    inset: 25px;
+    border: 1px solid rgba(210,177,126,.35);
+    pointer-events: none;
+}
+
+.frame:before,
+.frame:after {
+    content: "✦";
+    position: absolute;
+    color: var(--gold);
+    font-size: 19px;
+}
+
+.frame:before { top: -12px; left: 50%; }
+.frame:after { bottom: -12px; left: 50%; }
+
+.circle {
+    position: absolute;
+    width: 550px;
+    height: 550px;
+    border: 1px solid rgba(220,190,145,.12);
+    border-radius: 50%;
+}
+
+.circle.two {
+    width: 720px;
+    height: 720px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    animation: appear 1.5s ease;
+}
+
+.small-title {
+    color: #d8b98d;
+    letter-spacing: 6px;
+    font-size: 11px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: clamp(55px, 10vw, 105px);
+    line-height: 1.1;
+    margin: 35px 0 10px;
+}
+
+.hero h1 span {
+    display: block;
+    font-style: italic;
+    color: #d9b98c;
+}
+
+.ornament {
+    color: var(--gold);
+    font-size: 24px;
+    margin: 25px 0;
+}
+
+.hero p {
+    font-size: 15px;
+    color: #e6dce0;
+    line-height: 2;
+    max-width: 540px;
+    margin: auto;
+}
+
+.hero-button {
+    display: inline-block;
+    margin-top: 42px;
+    padding: 15px 32px;
+    border: 1px solid #c8a477;
+    color: #f0d9b7;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 11px;
+    transition: .4s;
+}
+
+.hero-button:hover {
+    background: #bd9a68;
+    color: #28141e;
+}
+
+/* GENEL */
+
+section {
+    padding: 110px 25px;
+}
+
+.section-title {
+    text-align: center;
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 5px;
+}
+
+h2 {
+    font: 500 clamp(35px, 6vw, 55px)/1.25 'Playfair Display', serif;
+    color: var(--wine);
+    text-align: center;
+    margin: 25px 0;
+}
+
+.description {
+    max-width: 680px;
+    margin: auto;
+    text-align: center;
+    font-size: 15px;
+    line-height: 2.1;
+    color: #77716e;
+}
+
+/* MEKTUP */
+
+.letter-section {
+    background: #f8f5ef;
+}
+
+.letter {
+    max-width: 750px;
+    margin: 65px auto 0;
+    padding: 65px 55px;
+    background: #fffdf9;
+    border: 1px solid #e8dece;
+    box-shadow: 0 20px 65px rgba(65,29,43,.07);
+    position: relative;
+}
+
+.letter:before {
+    content: "✦";
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--gold);
+    font-size: 22px;
+}
+
+.letter h3 {
+    text-align: center;
+    font: italic 30px 'Playfair Display', serif;
+    color: var(--wine);
+    margin: 20px 0 35px;
+}
+
+.letter p {
+    color: #69615e;
+    font-size: 15px;
+    line-height: 2.1;
+    margin-bottom: 20px;
+}
+
+.letter .end {
+    text-align: right;
+    color: var(--wine);
+    font: italic 22px 'Playfair Display', serif;
+    margin-top: 35px;
+}
+
+/* ÜÇ DEĞER */
+
+.values {
+    background: #eee7dc;
+}
+
+.value-grid {
+    max-width: 1000px;
+    margin: 65px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 22px;
+}
+
+.value {
+    text-align: center;
+    padding: 40px 22px;
+    background: rgba(255,255,255,.55);
+    border: 1px solid #e2d5c4;
+    transition: .4s;
+}
+
+.value:hover {
+    transform: translateY(-8px);
+    background: #fffdf9;
+}
+
+.value .icon {
+    font-size: 29px;
+    color: var(--gold);
+}
+
+.value h3 {
+    font: 25px 'Playfair Display', serif;
+    color: var(--wine);
+    margin: 22px 0 12px;
+}
+
+.value p {
+    color: #77716e;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+/* SON MESAJ */
+
+.final {
+    min-height: 500px;
+    background: linear-gradient(140deg,#542536,#28141e);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.final h2 {
+    color: #f2e6d5;
+}
+
+.final p {
+    color: #d9c6ca;
+    max-width: 580px;
+    line-height: 2;
+    font-size: 15px;
+}
+
+.final .name {
+    color: #d8b98d;
+    font: italic 35px 'Playfair Display',serif;
+    margin-top: 35px;
+}
+
+footer {
+    background: #211219;
+    text-align: center;
+    color: #bfa17c;
+    padding: 25px;
+    font-size: 10px;
+    letter-spacing: 4px;
+}
+
+/* ANİMASYON */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: 1s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media(max-width:700px) {
+    .value-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .letter {
+        padding: 60px 25px 35px;
+    }
+
+    .frame {
+        inset: 12px;
+    }
+
+    section {
+        padding: 80px 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- AÇILIŞ -->
+
+<header class="hero">
+
+    <div class="frame"></div>
+    <div class="circle"></div>
+    <div class="circle two"></div>
+
+    <div class="hero-content">
+
+        <div class="small-title">
+            24 KASIM · ÖĞRETMENLER GÜNÜ
+        </div>
+
+        <h1>
+            Helin Ova
+            <span>Öğretmenim…</span>
+        </h1>
+
+        <div class="ornament">✦ ─── ❀ ─── ✦</div>
+
+        <p>
+            Bazı insanlar yalnızca ders anlatmaz.
+            Hayatımıza dokunur, yolumuzu aydınlatır
+            ve hafızamızda güzel bir iz bırakır.
+        </p>
+
+        <a href="#mektup" class="hero-button">
+            SİZİN İÇİN HAZIRLANDI ↓
+        </a>
+
+    </div>
+</header>
+
+<!-- MEKTUP -->
+
+<section class="letter-section" id="mektup">
+
+    <div class="section-title">KÜÇÜK BİR TEŞEKKÜR</div>
+
+    <h2>
+        Değerli Helin Ova<br>
+        Öğretmenim,
+    </h2>
+
+    <p class="description">
+        Bugün sizin için birkaç güzel söz söylemek istedik.
+        Çünkü bazı emekler birkaç cümleyle anlatılamasa da
+        teşekkür etmeyi hak eder.
+    </p>
+
+    <div class="letter reveal">
+
+        <h3>Size bir mesajımız var…</h3>
+
+        <p>
+            Değerli Öğretmenim,
+        </p>
+
+        <p>
+            Bir öğretmenin en büyük eseri, öğrencilerinin
+            hayatında bıraktığı güzel izlerdir. Bazen bir
+            sözünüz, bazen verdiğiniz bir öğüt, bazen de
+            gösterdiğiniz anlayış bizim için çok değerli.
+        </p>
+
+        <p>
+            Bizlere kattığınız bilgiler, gösterdiğiniz sabır
+            ve ayırdığınız emek için size teşekkür ederiz.
+            Her öğrencinin içinde bir ışık olduğuna inanıp
+            o ışığı büyütmek için verdiğiniz mücadele
+            gerçekten çok kıymetli.
+        </p>
+
+        <p>
+            Belki yıllar geçecek, birçok ders ve konu
+            unutulacak. Ancak bize kattığınız güzellikler
+            ve güzel anılar hafızamızda kalacak.
+        </p>
+
+        <p>
+            İyi ki yollarımız sizinle kesişmiş.
+            İyi ki öğretmenimizsiniz.
+        </p>
+
+        <div class="end">
+            Saygı ve sevgilerimizle…
+        </div>
+
+    </div>
+</section>
+
+<!-- DEĞERLER -->
+
+<section class="values">
+
+    <div class="section-title">BİR ÖĞRETMENİN DEĞERİ</div>
+
+    <h2>
+        Üç kelime, binlerce teşekkür.
+    </h2>
+
+    <div class="value-grid">
+
+        <div class="value reveal">
+            <div class="icon">✧</div>
+            <h3>Emek</h3>
+            <p>
+                Geleceğimize kattığınız her bilgi
+                ve harcadığınız her değerli zaman için.
+            </p>
+        </div>
+
+        <div class="value reveal">
+            <div class="icon">❀</div>
+            <h3>Sabır</h3>
+            <p>
+                Bizi anlayışla dinlediğiniz ve
+                her zaman yol gösterdiğiniz için.
+            </p>
+        </div>
+
+        <div class="value reveal">
+            <div class="icon">♡</div>
+            <h3>İlham</h3>
+            <p>
+                Hayallerimize inanmamızı sağladığınız
+                ve bize umut verdiğiniz için.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- KAPANIŞ -->
+
+<section class="final">
+
+    <div class="section-title">
+        24 KASIM 2026
+    </div>
+
+    <h2>
+        İyi ki varsınız<br>
+        Helin Ova Öğretmenim.
+    </h2>
+
+    <p>
+        Dünyayı değiştirmek bazen tek bir öğrencinin
+        hayatına dokunmakla başlar.
+        Bize kattığınız her şey için teşekkür ederiz.
+        Öğretmenler Gününüz kutlu olsun.
+    </p>
+
+    <div class="name">
+        Helin Ova
+    </div>
+
+</section>
+
+<footer>
+    SEVGİ · SAYGI · MİNNET
+    <br><br>
+    ÖĞRETMENLER GÜNÜNE ÖZEL
+</footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+}, { threshold: 0.15 });
+
+document.querySelectorAll(".reveal").forEach(element => {
+    observer.observe(element);
+});
+</script>
+
+</body>
+</html>
